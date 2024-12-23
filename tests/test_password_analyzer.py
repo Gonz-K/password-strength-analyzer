@@ -5,7 +5,7 @@ from src.password_analyzer import PasswordAnalyzer
 
 class TestPasswordAnalyzer:
     """Test suite for PasswordAnalyzer class"""
-    
+
     @pytest.fixture
     def analyzer(self):
         """Provide analyzer instance for each test"""
@@ -16,7 +16,7 @@ class TestPasswordAnalyzer:
         # Test empty password
         with pytest.raises(ValueError):
             analyzer.analyze_password("")
-            
+
         # Test non-string input
         with pytest.raises(ValueError):
             analyzer.analyze_password(None)
@@ -27,12 +27,12 @@ class TestPasswordAnalyzer:
         result = analyzer.analyze_password("abc123")
         assert result['patterns']['has_patterns']
         assert 'sequential' in result['patterns']['patterns_found']
-        
+
         # Test repeated characters
         result = analyzer.analyze_password("aaa123")
         assert result['patterns']['has_patterns']
         assert 'repeated' in result['patterns']['patterns_found']
-        
+
         # Test strong password
         result = analyzer.analyze_password("Str0ng!P@ss")
         assert not result['patterns']['has_patterns']
@@ -51,7 +51,7 @@ class TestPasswordAnalyzer:
         # Test weak password
         weak = analyzer.analyze_password("weak")
         assert weak['score'] < 0.5
-        
+
         # Test strong password
         strong = analyzer.analyze_password("Str0ng!P@ssw0rd")
         assert strong['score'] > 0.8
@@ -61,3 +61,4 @@ class TestPasswordAnalyzer:
         result = analyzer.analyze_password("weak")
         assert isinstance(result['feedback'], list)
         assert any("characters" in msg for msg in result['feedback'])
+        
