@@ -36,11 +36,15 @@ jobs:
       run: pytest --cov=src tests/ --cov-report=xml
     
     # Upload coverage report
-    - name: Upload coverage report
+    ```yaml
+    - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3
       with:
         file: ./coverage.xml
         fail_ci_if_error: true
+        retry_max_attempts: 3
+        retry_delay_seconds: 600  # 10 minutes between retries
+```
 
   build-and-test:
     needs: security-checks
