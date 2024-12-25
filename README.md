@@ -1,4 +1,4 @@
-# Password Strength Analyzer
+w# Password Strength Analyzer
 
 A Python-based tool that analyzes password strength according to NIST SP 800-63B and OWASP guidelines. Developed as part of the Security Automation class final project, this tool showcases the application of modern security practices, automated analysis techniques, and DevSecOps principles.
 
@@ -135,4 +135,4 @@ In the end, the greatest lesson of this project may be that security is a journe
 
 ## License
 
-This project is developed solely for academic purposes as part of the Security Automation course at XYZ University. It is not licensed for reuse or distribution. All rights are reserved by the author.
+This project is developed solely for academic purposes as part of the Security Automation course at National University. It is not licensed for reuse or distribution. All rights are reserved by the author.
